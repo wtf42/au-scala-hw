@@ -9,7 +9,8 @@ lazy val exampleServer = (project in file("example-server")).settings(
   pipelineStages := Seq(scalaJSProd, gzip),
   libraryDependencies ++= Seq(
     "com.vmunier" %% "play-scalajs-scripts" % "0.1.0",
-    "org.webjars" % "jquery" % "1.11.1"
+    "org.webjars" % "jquery" % "3.1.1",
+    "org.webjars" % "bootstrap" % "3.3.5"
   ),
   EclipseKeys.skipParents in ThisBuild := false).
   enablePlugins(PlayScala).
@@ -22,7 +23,12 @@ lazy val exampleClient = (project in file("example-client")).settings(
   persistLauncher in Test := false,
   sourceMapsDirectories += exampleSharedJs.base / "..",
   unmanagedSourceDirectories in Compile := Seq((scalaSource in Compile).value),
-  libraryDependencies += "org.scala-js" %%% "scalajs-dom" % "0.8.0").
+  libraryDependencies ++= Seq(
+    "org.scala-js" %%% "scalajs-dom" % "0.8.1",
+    "com.lihaoyi" %%% "scalatags" % "0.5.2",
+    "com.lihaoyi" %%% "scalarx" % "0.2.8",
+    "be.doeraene" %%% "scalajs-jquery" % "0.8.0"
+  )).
   enablePlugins(ScalaJSPlugin, ScalaJSPlay).
   dependsOn(exampleSharedJs)
 

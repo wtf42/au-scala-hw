@@ -1,0 +1,17 @@
+.cell {
+    width: 2em;
+    height: 2em;
+    margin: 0;
+    padding: 0;
+    border: 2px solid #00f;
+    background: rgba(0,0,255,.05);
+}
+
+.c0 {
+    border: 2px solid #00f;
+    background: rgba(0,0,255,.05);
+}
+.c1 {
+    border: 2px solid #f00;
+    background: rgba(255,0,0,.05);
+}
